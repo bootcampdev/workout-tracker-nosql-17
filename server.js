@@ -24,9 +24,13 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", { use
 // html route from api.js (browser fetch request)
 //
 
+// find last or one workout in dbs
+//
+
 app.get("/api/workouts", (req, res) => {
   db.Workout.find({})
     .then (data => {
+      console.log("finding one", data);
       res.json(data);
     })
     .catch (err => {
@@ -54,12 +58,27 @@ app.post("/api/workouts", ({body}, res) => {
 // been created, so really we are just doing an update
 
 app.put("/api/workouts/:id", (req, res) => {
-  const newWorkout = db.Workout.create(req.body);
+  console.log(req.body);
+  //const newWorkout = db.Workout.create(req.body);
+  const id = req.params.id;
+  const newExcercise = {exercises: req.body};
   const filter = {id: req.params.id};
 
-  console.log("new workout: ", newWorkout);
+  console.log(id);
+  console.log("new excercise: ", newExcercise);
 
-  let workout = db.Workout.findOneAndUpdate(filter, newWorkout)
+  db.Workout.findByIdAndUpdate(id, {$push: {exercises: req.body }}, {new: true})
+  //db.Workout.findByIdAndUpdate(filter,  { $push: newExcercise}, {new: true})  
+    .then (data => {
+      res.json(data);
+    })
+    .catch (err => {
+      res.json(err);
+    })
+})
+
+app.get("/api/workouts/range", (req, res) => {
+  db.Workout.find({})
     .then (data => {
       res.json(data);
     })
