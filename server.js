@@ -20,16 +20,6 @@ app.use(express.static("public"));
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", { useNewUrlParser: true });
 
-// db.Workout.create({ day: Date.now })
-//   .then(data => {
-//     console.log(data);
-//   })
-//   .catch(({ message }) => {
-//     console.log(message);
-//   });
-
-console.log("dir name: ",__dirname);
-console.log("path: ",path.join(__dirname, "public", "exercise.html"))
 
 // html route from api.js (browser fetch request)
 //
@@ -45,7 +35,7 @@ app.get("/api/workouts", (req, res) => {
 })
 
 //
-// add an excercise
+// create a workout id and store in dbs, the excercise object is empty
 // {body} same as req and req.bdoy
 
 app.post("/api/workouts", ({body}, res) => {
@@ -60,10 +50,16 @@ app.post("/api/workouts", ({body}, res) => {
 })
 
 //
-// update an excercise
-//tobedone
-app.put("/api/workouts:id", (req, res) => {
-  db.Workout.find({})
+// update an excercise, the id for the new excercise has already
+// been created, so really we are just doing an update
+
+app.put("/api/workouts/:id", (req, res) => {
+  const newWorkout = db.Workout.create(req.body);
+  const filter = {id: req.params.id};
+
+  console.log("new workout: ", newWorkout);
+
+  let workout = db.Workout.findOneAndUpdate(filter, newWorkout)
     .then (data => {
       res.json(data);
     })
