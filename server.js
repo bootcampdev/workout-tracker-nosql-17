@@ -18,7 +18,12 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: false
+});
 
 
 // html route from api.js (browser fetch request)
@@ -86,13 +91,13 @@ app.get("/api/workouts/range", (req, res) => {
       }
     }
   ])
-  .then(data => {
-    console.log("aggreatation: ", data);
-     res.json(data);
-  })
-  .catch(err => {
+    .then(data => {
+      console.log("aggreatation: ", data);
+      res.json(data);
+    })
+    .catch(err => {
       res.json(err);
-  })
+    })
 })
 
 
