@@ -1,20 +1,27 @@
-# Unit 17 NoSQL Homework: Workout Tracker
+# Workout Tracker
+( workout-tracker-nosql-17)
 
-For this assignment, you'll create a workout tracker. You have already been provided with the front end code in the `Develop` folder. This assignment will require you to create Mongo database with a Mongoose schema and handle routes with Express.
+<br>
 
-## User Story
+<p>
+<img alt="JavaScript" src="https://img.shields.io/badge/javascript%20-%23323330.svg?&style=for-the-badge&logo=javascript&logoColor=%23F7DF1E"/>
+<img alt="jQuery" src="https://img.shields.io/badge/jquery%20-%230769AD.svg?&style=for-the-badge&logo=jquery&logoColor=white"/>
+ <img alt="Nodejs" src="https://img.shields.io/badge/-Nodejs-43853d?style=flat-square&logo=Node.js&logoColor=white" />
+ <img alt="Express.js" src="https://img.shields.io/badge/express.js%20-%23404d59.svg?&style=for-the-badge"/>
+ <img alt="GitHub" src="https://img.shields.io/badge/github%20-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"/>
+ </p>
 
-* As a user, I want to be able to view create and track daily workouts. I want to be able to log multiple exercises in a workout on a given day. I should also be able to track the name, type, weight, sets, reps, and duration of exercise. If the exercise is a cardio exercise, I should be able to track my distance traveled.
 
-## Business Context
+![MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
-A consumer will reach their fitness goals more quickly when they track their workout progress.
+![Mozilla](https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg)
 
-## Acceptance Criteria
+<br>
 
-When the user loads the page, they should be given the option to create a new workout or continue with their last workout.
+## Application Context
 
-The user should be able to:
+* Utilizing the Mongo database and mongoose npm module.  Develop a schema that tracks parameters of a workout.  Track the total duration and distance as well as the last workout performed.  User can create their own workout and see a graphical representation.
+
 
   * Add exercises to the most recent workout plan.
 
@@ -24,38 +31,35 @@ The user should be able to:
 
   * View the total duration of each workout from the past seven workouts on the `stats` page.
 
-> **Important:** Look into using a MongoDB aggregate function to dynamically add up and return the total duration for each workout. Check out the [MongoDB documentation on the $addFields](https://docs.mongodb.com/manual/reference/operator/aggregation/addFields/), the [MongoDB documentation on the $sum operator](https://docs.mongodb.com/manual/reference/operator/aggregation/sum/), and the [Mongoose documentation on aggregate functions](https://mongoosejs.com/docs/api.html#aggregate_Aggregate) to learn how it can be accomplished.
+<br>
 
-To deploy an application with a MongoDB database to Heroku, you'll need to set up a MongoDB Atlas account and connect a database from there to your application. Be sure to use the following guides for support:
+## Instructions
+
+Github repository for this application
+
+[Github Repository](https://github.com/bootcampdev/workout-tracker-nosql-17)
+
+
+## Development Requirements 
+Local Mongo database required for localhost
+
+```md
+$ npm install
+
+$ npm run seed
+
+$ node server
+```
+
+MongoAtlas References
 
   * [Set Up MongoDB Atlas](../04-Important/MongoAtlas-Setup.md)
 
   * [Deploy with Heroku and MongoDB Atlas](../04-Important/MongoAtlas-Deploy.md)
 
-## Commit Early and Often
+## Application Demo
 
-One of the most important skills to master as a web developer is version control. Building the habit of committing via Git is important for the following two reasons:
+This application is hosted on Heroku
 
-1. Your commit history is a signal to employers that you are actively working on projects and learning new skills.
 
-2. Your commit history allows you to revert your codebase in the event that you need to return to a previous state.
-
-Follow these guidelines for committing:
-
-* Make single-purpose commits for related changes to ensure a clean, manageable history. If you are fixing two issues, make two commits.
-
-* Write descriptive, meaningful commit messages so that you and anyone else looking at your repository can easily understand its history.
-
-* Don't commit half-done work, for the sake of your collaborators (and your future self!).
-
-* Test your application before you commit to ensure functionality at every step in the development process.
-
-We want you to have well over 200 commits by graduation, so commit early and often!
-
-## Submission on BCS
-
-You are required to submit the following:
-
-* The URL to the deployed application
-
-* The URL to the GitHub repository
+[Workout Tracker](https://agile-dusk-49539.herokuapp.com/)
