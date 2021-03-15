@@ -20,7 +20,7 @@
 
 ## Application Context
 
-* Utilizing the Mongo database and mongoose npm module.  Develop a schema that tracks parameters of a workout.  Track the total duration and distance as well as the last workout performed.  User can create their own workout and see a graphical representation.
+* Utilizing the Mongo database and mongoose npm module. Routes are handled with Express and data is stored as json documents.  Develop a schema that tracks parameters of a workout.  Track the total duration and distance as well as the last workout performed.  User can create their own workout and see a graphical representation.
 
 
   * Add exercises to the most recent workout plan.
